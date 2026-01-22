@@ -7,7 +7,9 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start",
-    "sandbox": "./sandbox-run.sh"
+    "sandbox": "./sandbox-run.sh",
+    "sandbox-connect": "docker exec -it -w /work sandbox3000 bash",
+    "dev-webpack": "next dev --webpack"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
