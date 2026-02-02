@@ -138,8 +138,8 @@ export function MarketplaceView() {
         </div>
       </div>
 
-      {/* Product Grid */}
-      <div className="p-4 grid grid-cols-2 gap-3">
+      {/* Product Grid - cards con anchura 320px */}
+      <div className="p-4 grid gap-4" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))" }}>
         {filteredProducts.map((product) => (
           <Card
             key={product.id}

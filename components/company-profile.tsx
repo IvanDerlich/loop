@@ -8,8 +8,6 @@ import {
   Building2,
   MapPin,
   Star,
-  MessageCircle,
-  UserPlus,
   Edit3,
   Plus,
   Package,
@@ -51,7 +49,6 @@ const mockCompany = {
   },
   hours: "Mon-Fri: 8:00 AM - 6:00 PM",
   certifications: ["ISO 9001", "ISO 14001", "OSHA Certified"],
-  isFollowing: false,
 }
 
 const mockProducts = [
@@ -82,8 +79,6 @@ const mockProducts = [
 ]
 
 export function CompanyProfile({ companyId }: { companyId: string }) {
-  const [isFollowing, setIsFollowing] = useState(mockCompany.isFollowing)
-
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
@@ -167,21 +162,6 @@ export function CompanyProfile({ companyId }: { companyId: string }) {
             ))}
           </div>
 
-          {/* Action Buttons */}
-          <div className="grid grid-cols-2 gap-3 pt-2">
-            <Button
-              size="lg"
-              className={isFollowing ? "bg-secondary text-secondary-foreground hover:bg-secondary/80" : ""}
-              onClick={() => setIsFollowing(!isFollowing)}
-            >
-              <UserPlus className="w-4 h-4 mr-2" />
-              {isFollowing ? "Following" : "Follow"}
-            </Button>
-            <Button size="lg" variant="outline">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Message
-            </Button>
-          </div>
         </Card>
 
         {/* Stats Row */}
