@@ -256,9 +256,11 @@ export function PublishProductFlow() {
             </div>
           </div>
 
-          <Button size="lg" className="w-full" onClick={nextStep} disabled={!formData.name || !formData.description}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep} disabled={!formData.name || !formData.description}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -387,9 +389,11 @@ export function PublishProductFlow() {
             )}
           </div>
 
-          <Button size="lg" className="w-full" onClick={nextStep}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -607,9 +611,11 @@ export function PublishProductFlow() {
             </Card>
           )}
 
-          <Button size="lg" className="w-full" onClick={nextStep}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -756,9 +762,11 @@ export function PublishProductFlow() {
             </div>
           </Card>
 
-          <Button size="lg" className="w-full" onClick={nextStep}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -898,9 +906,11 @@ export function PublishProductFlow() {
             </Card>
           )}
 
-          <Button size="lg" className="w-full" onClick={nextStep}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -983,9 +993,11 @@ export function PublishProductFlow() {
             </Card>
           )}
 
-          <Button size="lg" className="w-full" onClick={nextStep}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -1087,9 +1099,11 @@ export function PublishProductFlow() {
             </>
           )}
 
-          <Button size="lg" className="w-full" onClick={nextStep}>
-            Continuar
-          </Button>
+          <div className="flex justify-center">
+            <Button size="lg" className="w-[280px] h-[40px]" onClick={nextStep}>
+              Continuar
+            </Button>
+          </div>
         </div>
       </div>
     )
@@ -1233,12 +1247,13 @@ export function PublishProductFlow() {
             </div>
           </Card>
 
-          <div className="grid grid-cols-2 gap-3">
-            <Button size="lg" variant="outline" onClick={() => setStep(1)} className="bg-transparent">
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button size="lg" variant="outline" onClick={() => setStep(1)} className="w-[280px] h-[40px] bg-transparent">
               Editar
             </Button>
             <Button
               size="lg"
+              className="w-[280px] h-[40px]"
               onClick={() => {
                 // Simulate publish success
                 window.location.href = "/publish-success"

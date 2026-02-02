@@ -112,12 +112,12 @@ export function OnboardingFlow() {
         </div>
       </div>
 
-      <div className="p-6 space-y-3">
+      <div className="p-6 space-y-3 flex flex-col items-center">
         {isLastSlide ? (
           <>
             <Button
               size="lg"
-              className="w-full text-base font-medium h-14"
+              className="w-[280px] h-[40px] text-base font-medium"
               onClick={() => (window.location.href = "/create-profile")}
               disabled={!acceptedTerms}
             >
@@ -127,14 +127,14 @@ export function OnboardingFlow() {
             <Button
               size="lg"
               variant="outline"
-              className="w-full text-base font-medium h-14 bg-transparent"
+              className="w-[280px] h-[40px] text-base font-medium bg-transparent"
               onClick={() => (window.location.href = "/signin")}
             >
               Iniciar sesión
             </Button>
           </>
         ) : (
-          <Button size="lg" className="w-full text-base font-medium h-14" onClick={handleNext}>
+          <Button size="lg" className="w-[280px] h-[40px] text-base font-medium" onClick={handleNext}>
             Siguiente
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
