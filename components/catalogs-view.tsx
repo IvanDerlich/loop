@@ -69,8 +69,8 @@ export function CatalogsView() {
 
       <div className="p-4 space-y-4">
         {/* Info Card */}
-        <Card className="bg-primary/5 border-primary/20">
-          <CardContent className="p-4">
+        <Card className="bg-primary/5 border-primary/20 py-0">
+          <CardContent className="p-4 px-4">
             <p className="text-sm leading-relaxed">
               Crea catálogos privados para organizar productos para compradores concretos. Define precios, pedidos mínimos y
               comparte mediante enlaces de invitación.

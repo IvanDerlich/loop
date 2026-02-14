@@ -68,7 +68,8 @@ export function DashboardView() {
         </div>
       </div>
 
-      <div className="p-4 space-y-6">
+      <div className="p-4">
+        <div className="mx-auto w-full max-w-6xl space-y-6">
         {/* Analytics Cards */}
         <div className="grid grid-cols-2 gap-3">
           <Card>
@@ -246,7 +247,7 @@ export function DashboardView() {
               onClick={() => (window.location.href = "/automation/create")}
             >
               <Repeat className="h-4 w-4 mr-2" />
-              Create New Automation
+              Crear nueva automatización
             </Button>
           </TabsContent>
 

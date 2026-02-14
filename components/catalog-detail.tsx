@@ -3,7 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Share2, MoreVertical, Lock, Package } from "lucide-react"
+import { ArrowLeft, Share2, MoreVertical, Lock, Package, Copy } from "lucide-react"
+import * as React from "react"
+import { useEffect, useState } from "react"
+import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useToast } from "@/components/ui/use-toast"
 
@@ -28,6 +31,32 @@ const catalogProducts = [
   },
   { id: 3, name: "Office Furniture Set", price: "$12,500", stock: "En stock", image: "/placeholder.svg?key=bntss" },
 ]
+
+function ShareLinkInput({ toast }: { toast: any }) {
+  const [link, setLink] = useState("")
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setLink(window.location.href)
+    }
+  }, [])
+
+  return (
+    <div className="flex items-center gap-2">
+      <Input value={link} readOnly className="flex-1" />
+      <Button
+        size="icon"
+        variant="outline"
+        onClick={() => {
+          if (link) navigator.clipboard.writeText(link)
+          toast({ title: "Enlace copiado", description: "El enlace del catálogo ha sido copiado al portapapeles" })
+        }}
+      >
+        <Copy className="h-4 w-4" />
+      </Button>
+    </div>
+  )
+}
 
 export function CatalogDetail({ catalogId }: CatalogDetailProps) {
   const { toast } = useToast()
@@ -93,22 +122,13 @@ export function CatalogDetail({ catalogId }: CatalogDetailProps) {
                 </Badge>
               )}
             </div>
+
+            {/* Share link input */}
+            <ShareLinkInput toast={toast} />
           </CardContent>
         </Card>
 
-        {/* Share Link Card */}
-        <div className="flex justify-center">
-          <Button
-            size="icon"
-            variant="outline"
-            onClick={() => {
-              navigator.clipboard.writeText(window.location.href)
-              toast({ title: "Enlace copiado", description: "El enlace del catálogo ha sido copiado al portapapeles" })
-            }}
-          >
-            <Share2 className="h-5 w-5" />
-          </Button>
-        </div>
+        {/* removed floating share button - link copy moved into the catalog card */}
 
         {/* Products */}
         <div className="space-y-3">

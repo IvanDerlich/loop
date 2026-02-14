@@ -213,7 +213,7 @@ export function MarketplaceView() {
       <Button
         size="icon"
         className="fixed bottom-24 right-6 h-14 w-14 rounded-full shadow-lg"
-        onClick={handleOpenPublishModal}
+        onClick={() => (window.location.href = "/publish-product")}
       >
         <Plus className="h-6 w-6" />
       </Button>
