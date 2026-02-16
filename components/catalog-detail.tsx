@@ -60,6 +60,7 @@ function ShareLinkInput({ toast }: { toast: any }) {
 
 export function CatalogDetail({ catalogId }: CatalogDetailProps) {
   const { toast } = useToast()
+  const isOtherVendorCatalog = parseInt(catalogId) >= 100
   
   const catalog = {
     id: catalogId,
@@ -87,19 +88,21 @@ export function CatalogDetail({ catalogId }: CatalogDetailProps) {
           <Button variant="ghost" size="icon">
             <Share2 className="h-5 w-5" />
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <MoreVertical className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>Editar catálogo</DropdownMenuItem>
-              <DropdownMenuItem>Gestionar productos</DropdownMenuItem>
-              <DropdownMenuItem>Configuración de compartir</DropdownMenuItem>
-              <DropdownMenuItem className="text-destructive">Eliminar</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {!isOtherVendorCatalog && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <MoreVertical className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem>Editar catálogo</DropdownMenuItem>
+                <DropdownMenuItem>Gestionar productos</DropdownMenuItem>
+                <DropdownMenuItem>Configuración de compartir</DropdownMenuItem>
+                <DropdownMenuItem className="text-destructive">Eliminar</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
       </div>
 
@@ -128,15 +131,15 @@ export function CatalogDetail({ catalogId }: CatalogDetailProps) {
           </CardContent>
         </Card>
 
-        {/* removed floating share button - link copy moved into the catalog card */}
-
         {/* Products */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h2 className="font-semibold text-lg">Products</h2>
-            <Button variant="outline" size="sm">
-              Add More
-            </Button>
+            {!isOtherVendorCatalog && (
+              <Button variant="outline" size="sm">
+                Add More
+              </Button>
+            )}
           </div>
 
           {catalogProducts.map((product) => (
